@@ -1,0 +1,10 @@
+baseURL = 'http://franfabrizio.dev/'
+languageCode = 'en-us'
+title = 'franfabrizio.dev'
+theme = "m10c"
+
+[params]
+  author = "fran"
+  description = "Tech musings"
+  avatar = ""
+  favicon = ""
