@@ -5,6 +5,6 @@ theme = "m10c"
 
 [params]
   author = "fran"
-  description = "Tech musings"
-  avatar = ""
+  description = "Tech Notes from my Homelab"
+  avatar = "/laptop-wave.png"
   favicon = ""
