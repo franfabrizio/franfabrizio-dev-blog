@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on franfabrizio.dev</title>
+    <link>http://franfabrizio.dev/posts/</link>
+    <description>Recent content in Posts on franfabrizio.dev</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 15 Oct 2024 23:57:27 -0500</lastBuildDate><atom:link href="http://franfabrizio.dev/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hello World</title>
+      <link>http://franfabrizio.dev/posts/hello-world/</link>
+      <pubDate>Tue, 15 Oct 2024 23:57:27 -0500</pubDate>
+      
+      <guid>http://franfabrizio.dev/posts/hello-world/</guid>
+      <description>Introduction This is a new blog with my tech musings.</description>
+    </item>
+    
+  </channel>
+</rss>
