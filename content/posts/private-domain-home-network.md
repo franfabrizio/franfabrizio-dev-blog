@@ -6,17 +6,19 @@ draft: true
 
 ## Introduction
 
-Somewhere on your homelab journey you will eventually come to the realization that you would like to have friendly names for all of the things on your home network instead of dealing with IP addresses. There are many ways to scratch that itch, but one of the most common approaches is to run private DNS and DHCP services and point all of your internal devices at them. Here's an overview of the things you'll need to plan and decide in order to get a private domain working on your home network.
+Somewhere on your homelab journey you will eventually come to the realization that you would like to have friendly names for all of the things on your home network instead of dealing with IP addresses. There are many ways to scratch that itch, but one of the most common approaches is to create a private domain. A private domain is simply a domain name that you'd like to use on your internal network that is not visible from the outside world. 
 
-## What's a Private Domain?
+You can create a private domain by running local DNS and DHCP services and pointing your internal devices at them. Here's how I accomplished this with Technitium.
 
-A private domain is simply a domain name that you'd like to use on your internal network that is not visible from the outside world. This _can_ be an actual honest-to-goodness domain name, but that's not necessary and also problematic if you're planning to use that same domain name for anything public-facing.
+## Choosing a Private Domain Name
 
-The good news is that you can just use whatever domain name you want, including the TLD (the last part of the domain name). If you want your home network to be called `unicorns.donuts`, you can do that. However, there are some pseudo-standards, or at least conventions, that tend to be popular.
+This _can_ be an actual honest-to-goodness domain name, but that's not necessary and also problematic if you're planning to use that same domain name for anything public-facing.
+
+The good news is that you can just use whatever domain name you want, including the TLD (the last part of the domain name). If you want your home network to be called `rainbows.donuts`, you can do that. However, there are some pseudo-standards, or at least conventions, that tend to be popular.
 
 Common TLDs for private networks include `.intranet`, `.internal`, `.home`, `.private` or `.lan`. There are a couple I'd recommend not using, as well. `.local`, because that's sort of reserved for something called multicast DNS, or mDNS. In fact, the recommendations I made above come from [Appendix G of the Multicast DNS RFC](https://www.rfc-editor.org/rfc/rfc6762#appendix-G). Another I'd recommend against, even though it's sorta the most official one for this purpose, is `.home.arpa`, which is proposed as a standard in [IETF's RFC 8375](https://datatracker.ietf.org/doc/html/rfc8375). It will work quite well for the purpose, but it's just odd and ugly to me, and is not in common use.
 
-## Providing Private DNS Service
+## Setting Up a Local DNS Resolver
 
 For most home networks, their router (either the one provided by the ISP or something that was purchased like a wifi mesh router system) will serve as their nameserver and the DHCP server (usually also built into the same router) will set clients' nameserver to be the router by default. The router isn't really mapping names to IPs (known as resolving) itself - it's typically just a DNS forwarder. A DNS forwarder forwards queries to full-fledged DNS resolvers, and then it caches the results it gets back for faster lookup next time.
 
@@ -27,6 +29,28 @@ There are a number of solutions that aim somewhere in the middle of these two en
 I started my homelab running my own bind9 instance, which appealed to my 1990's sysadmin sensibilities, but I eventually settled on another product which inhabits this middle ground - Technitium. If Pi-hole is an ad-blocker with some DNS functionality attached, then Technitium is a DNS server with some ad-blocking capability attached. Technitium supports a fuller set of DNS functionality than Pi-hole while being slightly less robust (but still plenty useful) on the ad-blocking side. I prefer it for some of that extra DNS functionality - Pi-hole is a DNS forwarder and can be a pseudo-resolver for custom local DNS names, but it's not a real recursive DNS resolver (one which can recursively query DNS servers until it discovers the IP address) without the addition of some additional software like unbound to do the recursive resolving. Technitium is a self-contained package that does all of this, and that's quite useful and handy.
 
 Whatever solution you settle on, make sure your local network contains a DNS server which can respond with the IP addresses for your custom domain devices.
+
+### Setting up Technitium
+
+#### Step 1: Install Technitium
+
+On the [Technitium DNS download page](https://technitium.com/dns/) you'll find installers and portable apps for Windows, Linux, Mac, Pi and Docker. 
+
+Once you have it up and running, you should be able to reach its Dashboard on port 5380. 
+
+[image goes here]
+
+Yours won't have any activity on it yet, of course. 
+
+#### Step 2: Set up a forward zone
+
+The next thing to do is set up your forward zone which maps names to IP addresses. Go to the Zones tab. You'll see a handful of Internal zones already set up - you can safely ignore these for now. Click the Add Zone button and fill out the form to set up your zone. For the purposes of this tutorial, we'll create `unicorn.home`. 
+
+[image]
+
+You'll want to choose the Primary Zone type. 
+
+#### Step 3: 
 
 ## Managing Dynamic Host Configuration (DHCP)
 
