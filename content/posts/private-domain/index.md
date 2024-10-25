@@ -1,7 +1,7 @@
 ---
 title: "Setting Up a Private Domain with Technitium"
 date: 2024-10-24
-draft: true
+draft: false
 ---
 
 ## Introduction
