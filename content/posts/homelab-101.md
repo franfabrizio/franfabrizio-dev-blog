@@ -1,24 +1,24 @@
 ---
 title: "Homelab 101"
-date: 2024-10-21T15:57:23-05:00
+date: 2024-10-21
 draft: true
 ---
 
 ## Introduction
 
-This is a guide intended to get folks started on their homelab journey. This post won't tell you how to implement your homelab - it'll simply lay out the big questions and things you need to think about as you get started. It's a collection of hard-earned knowledge and wisdom that I've gathered as I've gone through my own homelab journey. I went through countless reddit threads, YouTube videos, and blogs to muddle my way along, and my hope is that I can give the next person a bit of a leg up.
+This blog is a place for me to gather notes about my homelab, and this first post is a guide intended to get folks started on their homelab journey. This post won't tell you how to implement your homelab - it'll simply lay out the big questions and things you need to think about as you get started. It's a collection of hard-earned knowledge and wisdom that I've gathered as I've gone through my own homelab journey over the past few months. I went through countless reddit threads, YouTube videos, and blogs to muddle my way along, and my hope is that I can give the next person a bit of a leg up.
 
 ## What's a Homelab?
 
-Glad you asked! In the purest sense of the term, a homelab is a place where you can test out new equipment and technologies and learn more about everything IT from the comfort of your home. However, over time the term "homelab" came to refer to any situation where you're doing more with your home network than the "typical consumer". If you're running your own router or you've installed open source software like DD-WRT on a router, if you're hosting any sort of service out of your home (e.g. personal website), if you like to tinker with Raspberry Pis, if you're running network-wide ad blocking - you fall under the broad umbrella of homelab.
+Glad you asked! In the purest sense of the term, a homelab is a place where you can test out new equipment and technologies and learn more about everything IT from the comfort of your home. However, over time the term "homelab" came to refer to any situation where you're doing more with your home network than the "typical consumer". If you're running your own router or you've installed open source software like OpenWRT on a router, if you're hosting any sort of service out of your home (e.g. personal website), if you like to tinker with Raspberry Pis, if you're running network-wide ad blocking - you fall under the broad umbrella of homelab.
 
-For our purposes, if you want to have more control over what's happening on your home network than just plugging in the standard mesh wifi router that your ISP gives you, then you are a candidate for setting up a homelab!
+For our purposes, if you want to have more control over what's happening on your home network than just plugging in the standard router that your ISP gives you, then you are a candidate for setting up a homelab!
 
 ## Why Should You Trust Me?
 
-Well, you really shouldn't, at least not blindly! I'm not pretending to be an expert. If this is Homelab 101, I'm maybe enrolled in Homelab 201 or 301 right now. I'm not totally without credentials - I was a sysadmin in charge of a datacenter for a CS department at a university for much of the 2000s so I've put in plenty of hours setting up and maintaining networks, servers, and services. But I've been in IT managerland for the last decade+, and also for a long time it was one of those things where I didn't always want to bring my work home, so I've been knocking off a fair bit of rust as I've gone on this trip. 
+Well, you really shouldn't, at least not blindly. I'm not an expert. If this is Homelab 101, I'm maybe enrolled in Homelab 201 or 301 right now. I'm not totally without credentials - I was a sysadmin in charge of a datacenter for a CS department at a university for much of the 2000s so I've put in plenty of hours setting up and maintaining networks, servers, and services. But I've been in IT managerland for the last decade+, and also for a long time it was one of those things where I didn't always want to bring my work home, so I've been knocking off a fair bit of rust as I've gone on this trip.
 
-I've been slowly laying the groundwork for my homelab over the last for year (for instance, when we remodeled our basement a few years back I established a networking closet and ran tons of ethernet from the new spaces back to the clost), but I really got more involved in homelabbing in 2024 when I was switching ISPs and used that as an excuse to rebuild the home network from the ground up. I wanted a place to capture what I'm learning. I don't intend for this to be an authoritative reference - more of a getting started guide, with pointers to the most useful references I've found along the way.
+I've been slowly laying the groundwork for my homelab over the last few years (for instance, when we remodeled our basement a few years back I established a networking closet and ran tons of ethernet from the new spaces back to the closet), but I really got more involved in homelabbing in 2024 when I was switching ISPs and used that as an excuse to rebuild the home network from the ground up. I wanted a place to capture what I'm learning. I don't intend for this to be an authoritative reference - more of a getting started guide, with pointers to the most useful references I've found along the way.
 
 ## What are the Key Parts of a Homelab?
 
@@ -53,19 +53,19 @@ Here are the key pieces:
 * **Wireless Network**. Three basic options here. 1. Use a standard wifi router in access point mode. You probably have something lying in your closet that'll do in a pinch. 2. Use any of the many mesh wifi network solutions on the market. 3. Install traditional wifi access points. Option 1 is cheapest, option 3 is most flexible. If feasible, it's really nice to hardwire your access points back to your switches for better wifi performance.
 * **Uninterruptible Power Supply**. You'll at least want one to handle your core networking gear during short outages or voltage fluctuations. Doesn't have to be fancy, but can be if you want it to be. Remember that a UPS' VA rating is not the same as the watt load it can handle (which is generally significantly less).
 * Optional Items
-    * **A rack**. To keep everything neat, a networking rack can be hugely helpful. These come in all shapes and sizes. Two popular form factors for homelabs are rolling racks that you can tuck under your desk, and wallmount racks that you can put in a closet. These can be short-depth racks unless you're planning on going full-on datacenter-style rackmount servers (rare). If you get a rack, don't forget:
-        * Mounting hardware (screws and cage nuts)
-        * Patch panels to terminate any wiring (match it to your cabling - e.g. Cat6 patch panels for Cat6 cabling)
-        * Zip ties
+  * **A rack**. To keep everything neat, a networking rack can be hugely helpful. These come in all shapes and sizes. Two popular form factors for homelabs are rolling racks that you can tuck under your desk, and wallmount racks that you can put in a closet. These can be short-depth racks unless you're planning on going full-on datacenter-style rackmount servers (rare). If you get a rack, don't forget:
+    * Mounting hardware (screws and cage nuts)
+    * Patch panels to terminate any wiring (match it to your cabling - e.g. Cat6 patch panels for Cat6 cabling)
+    * Zip ties
     
-        One last note here - if you get a rack, there are some great 3D printing sellers on Etsy that make custom rackmount brackets for gear that doesn't come in rackmount form to class up your homelab aesthetics. 
-    * **Server(s)**. You're probably going to want to mess around with containerization/virtualization of some sort, or maybe set up a NAS system, and you'll need a system or two to host those. A really popular option here is to repurpose an old desktop. Really any computer can work for this to some extent - in a real pinch you can just use your regular desktop, but it's nicer to have a separate system or two for this. Used Dell Optiplex Small Form Factors are really popular for this because ebay is flooded with them and they have a quite good power usage profile.
-    * **Raspberry Pis / IoT Devices**. If you have IoT sorts of projects you'd like to work on.
-    * **A watt meter**. This is useful to understand how much power your gear is consuming. Cheap Amazon ones are fine for basic purposes.
-    * **Ethernet cable-making supplies**. I'm constantly making custom-length cabling. You'll want a spool of cable - Cat6 is fine, cost-effective, easy to work with, and reasonably future-friendly, as it can do 10Gb for 55 meters. Stranded copper for patch cables, solid copper for anything going in a wall/attic. If it seems too cheap make sure it's not copper-clad aluminum (CCA), ESPECIALLY if you are going to do any Power over Ethernet - CCA cable is not safe for PoE, it generates too much heat. You'll also want a stripping/crimping tool, RJ45 connectors (cable ends), keystone connectors if you're terminating cables in a rack.
-    * **A label maker**. Well-labeled equipment is one of life's simple pleasures.
-    * **A cheap, small monitor and keyboard**. For directly plugging into your docker host or other machines when you screw up their networking.
-    * **USB ethernet adapters**. For doing troubleshooting in the networking closet from your laptop that no longer comes with an ethernet port.
+    One last note here - if you get a rack, there are some great 3D printing sellers on Etsy that make custom rackmount brackets for gear that doesn't come in rackmount form to class up your homelab aesthetics. 
+  * **Server(s)**. You're probably going to want to mess around with containerization/virtualization of some sort, or maybe set up a NAS system, and you'll need a system or two to host those. A really popular option here is to repurpose an old desktop. Really any computer can work for this to some extent - in a real pinch you can just use your regular desktop, but it's nicer to have a separate system or two for this. Used Dell Optiplex Small Form Factors are really popular for this because ebay is flooded with them and they have a quite good power usage profile.
+  * **Raspberry Pis / IoT Devices**. If you have IoT sorts of projects you'd like to work on.
+  * **A watt meter**. This is useful to understand how much power your gear is consuming. Cheap Amazon ones are fine for basic purposes.
+  * **Ethernet cable-making supplies**. I'm constantly making custom-length cabling. You'll want a spool of cable - Cat6 is fine, cost-effective, easy to work with, and reasonably future-friendly, as it can do 10Gb for 55 meters. Stranded copper for patch cables, solid copper for anything going in a wall/attic. If it seems too cheap make sure it's not copper-clad aluminum (CCA), ESPECIALLY if you are going to do any Power over Ethernet - CCA cable is not safe for PoE, it generates too much heat. You'll also want a stripping/crimping tool, RJ45 connectors (cable ends), keystone connectors if you're terminating cables in a rack.
+  * **A label maker**. Well-labeled equipment is one of life's simple pleasures.
+  * **A cheap, small monitor and keyboard**. For directly plugging into your docker host or other machines when you screw up their networking.
+  * **USB ethernet adapters**. For doing troubleshooting in the networking closet from your laptop that no longer comes with an ethernet port.
 
 Make sure to consider your location when planning out your equipment. Think about things like noise levels (in your home office? Consider fanless switching equipment), power consumption (do you live in a high-energy-cost area? Do you have enough circuits in the room to handle your expected load?), tidyness (does this need to tuck away during the work day?).
 

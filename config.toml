@@ -8,3 +8,17 @@ theme = "m10c"
   description = "Tech Notes from my Homelab"
   avatar = "/laptop-wave.png"
   favicon = ""
+
+[menu]
+  [[menu.main]]
+    identifier = "home"
+    name = "Home"
+    url = "/"
+  [[menu.main]]
+    identifier = "tags"
+    name = "Tags"
+    url = "/tags/"
+
+[services]
+  [services.disqus]
+    shortname = 'franfabrizio-dev'
