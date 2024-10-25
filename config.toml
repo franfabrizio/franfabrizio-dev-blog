@@ -22,3 +22,5 @@ theme = "m10c"
 [services]
   [services.disqus]
     shortname = 'franfabrizio-dev'
+  [services.googleAnalytics]
+    ID = 'G-8LBKY582ZV'
