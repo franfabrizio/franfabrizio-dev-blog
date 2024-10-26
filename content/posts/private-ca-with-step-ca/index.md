@@ -308,7 +308,7 @@ If you want step-ca to start automatically and be always running, you have a few
 
 ## Notes and Wrapup
 
-Now that we have a private CA, we can create certificates for all of our internal services and add our root CA to our internal trust stores and have honest-to-goodness working SSL connections on our homelan. Just make sure your certs match the DNS names (or IP addresses, if you're not using a private domain) of your services, otherwise they won't work. If you want to add both DNS names and IP addresses to a cert, you can do so by using the `--san` flag on the `step ca certificate` command. See [the examples](https://smallstep.com/docs/step-cli/reference/ca/certificate/#examples) on the website.
+Now that we have a private CA, we can create certificates for all of our internal services and add our root CA to our internal trust stores and have honest-to-goodness working SSL connections in our homelab. Just make sure your certs match the DNS names (or IP addresses, if you're not using a private domain) of your services, otherwise they won't work. If you want to add both DNS names and IP addresses to a cert, you can do so by using the `--san` flag on the `step ca certificate` command. See [the examples](https://smallstep.com/docs/step-cli/reference/ca/certificate/#examples) on the website.
 
 Speaking of the website, you may want to spend some time there. We've only just scratched the surface of what step-ca can do, and there is a lot of great documentation on the Smallstep site.
 
