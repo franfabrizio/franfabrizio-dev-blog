@@ -182,7 +182,7 @@ stepuser@step-ca-test:~$
 
 ### Installing Your CA as a System-Wide Trusted Authority
 
-`step` also comes with a command to install your root CA certificates into your system's trust store. This is helpful so that other utilities besides `step` (like `curl` or `wget`) will trust certificates issued by your CA.
+`step` also comes with a command to install your root CA certificates into your system's trust store. This is helpful so that other utilities besides `step` (like `curl` or `wget` and sometimes your browsers as well) will trust certificates issued by your CA.
 
 ```
 stepuser@step-ca-test:~$ step certificate install $(step path)/certs/root_ca.crt
@@ -195,7 +195,7 @@ X.509v3 Root CA Certificate (ECDSA P-256) [Serial: 2928...9877]
           to:  2034-10-24T12:05:30Z
 stepuser@step-ca-test:~$
 ```
-The neat thing is that this command will work whether your `step` client is on Windows, MacOS, Linux, or whathaveyou. Smallstep has provided a lot of nice little conveniences.
+The neat thing is that this command works across platforms. Smallstep has provided a lot of nice little conveniences.
 
 Now we can check our system's trust store to verify that Unicorn CA is trusted. This varies by operating system, but here's [one way to check on Ubuntu](https://unix.stackexchange.com/questions/97244/list-all-available-ssl-ca-certificates).
 
@@ -226,20 +226,17 @@ Now we're ready to use our CA to secure our services with valid certificates. To
 import http.server
 import ssl
 
-
 def get_ssl_context(certfile, keyfile):
     context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
     context.load_cert_chain(certfile, keyfile)
     context.set_ciphers("@SECLEVEL=1:ALL")
     return context
 
-
 class MyHandler(http.server.SimpleHTTPRequestHandler):
     def do_POST(self):
         content_length = int(self.headers["Content-Length"])
         post_data = self.rfile.read(content_length)
         print(post_data.decode("utf-8"))
-
 
 server_address = ("myservice.unicorn.home", 8443)
 httpd = http.server.HTTPServer(server_address, MyHandler)
@@ -250,13 +247,13 @@ httpd.socket = context.wrap_socket(httpd.socket, server_side=True)
 httpd.serve_forever()
 ```
 
-Here I'm creating a simple HTTPS server at `myservice.unicorn.home`. I've used `openssl` to self-sign a bogus certificate (`site.key` and `site.crt`) to first show what it looks like with an untrusted cert. What Python's `http.server` does by default is turn the current directory into the web root, so let's give it something useful to serve.
+Here I'm creating a simple HTTPS server at `myservice.unicorn.home`. I used `openssl` to self-sign a `site.key` and `site.crt` (details not in this post) to first show what it looks like with an untrusted cert. What Python's `http.server` does by default is turn the current directory into the web root, so let's give it something useful to serve.
 
 ```
 echo "Hello world!" > index.html
 ```
 
-After throwing a little entry for `myservice.unicorn.home` in our `/etc/hosts` pointing back at ourselves, we're all set for our little demo.
+After adding an entry for `myservice.unicorn.home` in our `/etc/hosts` pointing back at ourselves, we're all set for our little demo.
 
 Now if we run this (`python3 simple-server.py`) and try to visit it with `curl https://myservice.unicorn.home:8443/`, we see that the certificate is not trusted:
 
@@ -309,8 +306,10 @@ Remember, you can easily retrieve the Root CA certificate chain at the URL `http
 
 If you want step-ca to start automatically and be always running, you have a few options. Probably the easiest is to use the Docker container. Alternately, on Linux, you can [set it up as a daemon](https://smallstep.com/docs/step-ca/certificate-authority-server-production/index.html#running-step-ca-as-a-daemon).
 
-## Wrapup
+## Notes and Wrapup
 
-Now that we have a private CA, we can create certificates for all of our internal services and add our root CA to our internal trust stores and have honest-to-goodness working SSL connections on our homelan.
+Now that we have a private CA, we can create certificates for all of our internal services and add our root CA to our internal trust stores and have honest-to-goodness working SSL connections on our homelan. Just make sure your certs match the DNS names (or IP addresses, if you're not using a private domain) of your services, otherwise they won't work. If you want to add both DNS names and IP addresses to a cert, you can do so by using the `--san` flag on the `step ca certificate` command. See [the examples](https://smallstep.com/docs/step-cli/reference/ca/certificate/#examples) on the website.
+
+Speaking of the website, you may want to spend some time there. We've only just scratched the surface of what step-ca can do, and there is a lot of great documentation on the Smallstep site.
 
 In my next post, I'll explain how to use `step-ca`'s ACME functionality to integrate with Traefik and automatically manage certificates for your Docker containers.
