@@ -3,6 +3,11 @@ title: "Setting Up a Private Domain with Technitium"
 date: 2024-10-24
 draft: false
 toc: true
+tags: 
+  - dns 
+  - dhcp 
+  - private-domain 
+  - Technitium
 ---
 
 ## Introduction

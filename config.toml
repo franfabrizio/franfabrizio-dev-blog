@@ -2,6 +2,7 @@ baseURL = 'http://franfabrizio.dev/'
 languageCode = 'en-us'
 title = 'franfabrizio.dev'
 theme = "hugo-theme-m10c"
+capitalizeListTitles = false
 
 [params]
   author = "fran"
@@ -10,6 +11,7 @@ theme = "hugo-theme-m10c"
   favicon = ""
   # Minimum word count to display the Table of Contents
   tocMinWordCount = 500
+
 
 [menu]
   [[menu.main]]
