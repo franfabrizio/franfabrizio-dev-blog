@@ -2,6 +2,7 @@
 title: "Homelab 101 - Getting Started with Your Homelab"
 date: 2024-10-21
 draft: false
+toc: true
 ---
 
 ## Introduction

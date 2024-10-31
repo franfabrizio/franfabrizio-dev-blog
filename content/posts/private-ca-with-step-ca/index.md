@@ -2,6 +2,7 @@
 title: "Creating a Private Certificate Authority for Your Homelab with step-ca"
 date: 2024-10-25T22:55:10-05:00
 draft: false
+toc: true
 ---
 
 ## Introduction

@@ -8,6 +8,8 @@ theme = "m10c"
   description = "Tech Notes from my Homelab"
   avatar = "/laptop-wave.png"
   favicon = ""
+  # Minimum word count to display the Table of Contents
+  tocMinWordCount = 500
 
 [menu]
   [[menu.main]]
