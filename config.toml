@@ -1,7 +1,7 @@
 baseURL = 'http://franfabrizio.dev/'
 languageCode = 'en-us'
 title = 'franfabrizio.dev'
-theme = "m10c"
+theme = "hugo-theme-m10c"
 
 [params]
   author = "fran"
