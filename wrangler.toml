@@ -1,4 +1,4 @@
-name = "franfabrizio-dev-blof"
+name = "franfabrizio-dev-blog"
 pages_build_output_dir = "/public"
 
 [vars]
