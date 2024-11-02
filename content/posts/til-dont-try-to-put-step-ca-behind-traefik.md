@@ -3,6 +3,7 @@ title: "TIL: Don't Try to Put step-ca Behind Traefik"
 date: 2024-10-28T23:04:01-05:00
 draft: false
 toc: true
+tags: ["step-ca","traefik"]
 ---
 
 Just a quick post to stop others from going down this rabbit hole...

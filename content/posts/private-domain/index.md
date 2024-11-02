@@ -7,7 +7,7 @@ tags:
   - dns 
   - dhcp 
   - private-domain 
-  - Technitium
+  - technitium
 ---
 
 ## Introduction

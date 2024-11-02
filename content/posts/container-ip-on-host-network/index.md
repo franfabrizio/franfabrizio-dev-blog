@@ -3,7 +3,7 @@ title: "Docker, Portainer and MACVLAN: Giving a Container an IP on the Host Netw
 date: 2024-10-30T22:11:07-05:00
 draft: false
 toc: true
-tags: ["networking","Docker","macvlan","Portainer"]
+tags: ["networking","docker","macvlan","portainer"]
 ---
 
 ## Introduction
