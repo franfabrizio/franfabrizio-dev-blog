@@ -286,7 +286,7 @@ With DEBUG logging and the access log both turned on, we can also see in Traefik
 2024-11-03 22:45:47 172.18.0.1 - - [04/Nov/2024:04:45:47 +0000] "GET / HTTP/1.1" 200 388 "-" "-" 4 "whoami@docker" "http://172.18.0.2:80" 10ms
 ``` 
 
-We see a note that the "b9597fe0f5ca1856" container was selected for the request to be routed to, and then we see Traefik forwarding the call to that request, and getting a 200 response code back.
+We see a note that the "b9597fe0f5ca1856" container was selected for the request to be routed to, and then we see Traefik forwarding the request to that container, and getting a 200 response code back.
 
 We've done it! We've put a simple service behind Traefik and routed to it using HTTP and a friendly-name URL! The real usefulness comes when we have many services running. They can all respond to friendly names via port 80, and Traefik will route appropriately. This makes for a more polished homelab experience and sets the stage to do even cooler things with Traefik!
 
