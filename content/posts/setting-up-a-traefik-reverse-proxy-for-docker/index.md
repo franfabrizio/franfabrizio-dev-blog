@@ -19,7 +19,7 @@ Traefik itself also runs as a container in your Docker environment, and it does 
 
 Traefik has an interesting split configuration model.
 
-1. _**Static Configuration**_ is evaluated at startup time defined in one of the following three **mutually-exclusive** places, in this order of precedence:
+1. _**Static Configuration**_ is evaluated at startup time and is defined in one of the following three **mutually-exclusive** places, in this order of precedence:
    1. A configuration file (we'll use this option via the `traefik.yml` file we will create in a moment)
    2. Command-line arguments
    3. Environment variables
@@ -37,7 +37,7 @@ We're going to do things in this order:
 
 ### Step 1: Create Our Static Configuration
 
-I've already hinted about our strategy for static configuration - we'll be using a configuration file. Create a `traefik.yml` file somewhere convenient on your host, and add this YAML to it for a basic Traefik setup on a single Docker host:
+I've already hinted about our strategy for static configuration - we'll be using a configuration file. Create a `traefik.yml` file in the current directory on your host, and add this YAML to it for a basic Traefik setup on a single Docker host:
 
 ```yaml
 global:
@@ -55,7 +55,7 @@ api:
 accessLog: {}
 
 log:
-  level: INFO
+  level: DEBUG
 
 providers:
   docker:
@@ -65,12 +65,12 @@ providers:
 
 Let's go through this line-by-line.
 
-* The **global** section tells Traefik to check for new versions (you'll get that Upgrade button on your dashboard like in the screenshot above). I also choose to turn off sending anonymous usage stats to Traefik.
-* The **entryPoints** section tells Traefik to listen for HTTP protocol on port 80. Remember earlier we opened port 80 on the docker host to the container.
+* The **global** section tells Traefik to check for new versions (you'll get that Upgrade button on your dashboard like in the screenshot below). I also choose to turn off sending anonymous usage stats to Traefik.
+* The **entryPoints** section tells Traefik to listen for HTTP protocol on port 80. Later we will publish port 80 to the docker host so Traefik can receive requests.
 * The **api** section turns on the Dashboard (port 8080 by default) and allows HTTP (insecure) access to it.
 * The **accessLog** section turns on access logging. Now every request that Traefik routes will be logged. By default, this will go to STDOUT so you can view it using docker's log display for the container log. You can see the Traefik documentation for other options if you want a persistent access log. Here's an example log entry from me accessing my Paperless-NGX container's login page:
 `192.168.10.8 - - [02/Nov/2024:15:12:56 +0000] "GET /accounts/login/?next=/ HTTP/2.0" 200 3164 "-" "-" 96 "https-webserver@docker" "http://172.18.0.3:8000" 68ms`
-* The **log** section is for Traefik's own log (not access logging). Here I set the log level to INFO for more information. Again these go to STDOUT by default so you can view the information in the docker log for the container.
+* The **log** section is for Traefik's own log (not access logging). Here I set the log level to DEBUG for more information. Again these go to STDOUT by default so you can view the information in the docker log for the container.
 * Finally, the **providers** section is where we tell Traefik where to get its dynamic configuration information. Here we set up a Docker provider and use `endpoint` to point Traefik to the Docker API via a file socket. The `exposedByDefault: false` turns off Traefik's default behavior of automatically routing to any container it finds. This deserves some additional explanation which we'll discuss shortly.
 
 Now that we've created our `traefik.yml` file with our static configuration, we're ready to install and start Traefik.
@@ -79,9 +79,9 @@ Now that we've created our `traefik.yml` file with our static configuration, we'
 
 We will install Traefik using the [official Traefik Docker images](https://hub.docker.com/_/traefik).
 
-You need to publish at least two ports out of the Traefik container, port 80 which is where all of the application traffic will come in for Traefik to route, and port 8080, which is Traefik's own dashboard. You'll also need to attach the container to the persistent configuration file we just created and bind it to the container's `/etc/traefik/traefik.yml` file.
+You need to publish at least two ports out of the Traefik container and onto the host, port 80 which is where all of the application traffic will come in for Traefik to route, and port 8080 which is Traefik's own dashboard. You'll also need to attach the container to the persistent configuration file we just created and bind it to the container's `/etc/traefik/traefik.yml` file.
 
-You can do this with plain Docker or docker compose or a Docker manager like Portainer. Here's the straightforward Docker command:
+You can do this with plain Docker or docker compose or a Docker manager like Portainer. Here's the plain Docker command:
 
 ```sh
 docker run -d -p 80:80 -p 8080:8080 -v $PWD/traefik.yml:/etc/traefik/traefik.yml traefik:v3.2
@@ -110,7 +110,7 @@ services:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
 ```
 
-However you like to start containers, once you get the Traefik instance up and running verify that you can reach your Traefik Dashboard on port 8080 (`http://<your-docker-host>:8080/dashboard/`). It will look similar to this:
+However you like to start containers, once you get the Traefik instance up and running verify that you can reach your Traefik Dashboard on port 8080 (`http://<YOUR-DOCKER-HOST>:8080/dashboard/`). It will look similar to this:
 
 ![Dashboard](dashboard.png)
 
@@ -279,7 +279,16 @@ X-Forwarded-Server: fc5290468c2c
 X-Real-Ip: 172.18.0.1
 ```
 
-And we've done it! We've put a simple service behind Traefik and routed to it using HTTP and a friendly-name URL! The real usefulness comes when we have many services running. They can all respond to friendly names via port 80, and Traefik will route appropriately. This makes for a more polished homelab experience and sets the stage to do even cooler things with Traefik!
+With DEBUG logging and the access log both turned on, we can also see in Traefik's logs how this request was handled:
+
+```
+2024-11-03 22:45:47 2024-11-04T04:45:47Z DBG github.com/traefik/traefik/v3/pkg/server/service/loadbalancer/wrr/wrr.go:196 > Service selected by WRR: b9597fe0f5ca1856
+2024-11-03 22:45:47 172.18.0.1 - - [04/Nov/2024:04:45:47 +0000] "GET / HTTP/1.1" 200 388 "-" "-" 4 "whoami@docker" "http://172.18.0.2:80" 10ms
+``` 
+
+We see a note that the "b9597fe0f5ca1856" container was selected for the request to be routed to, and then we see Traefik forwarding the call to that request, and getting a 200 response code back.
+
+We've done it! We've put a simple service behind Traefik and routed to it using HTTP and a friendly-name URL! The real usefulness comes when we have many services running. They can all respond to friendly names via port 80, and Traefik will route appropriately. This makes for a more polished homelab experience and sets the stage to do even cooler things with Traefik!
 
 
 
