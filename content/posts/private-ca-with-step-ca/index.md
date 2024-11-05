@@ -314,4 +314,4 @@ Now that we have a private CA, we can create certificates for all of our interna
 
 Speaking of the website, you may want to spend some time there. We've only just scratched the surface of what step-ca can do, and there is a lot of great documentation on the Smallstep site.
 
-In my next post, I'll explain how to use `step-ca`'s ACME functionality to integrate with Traefik and automatically manage certificates for your Docker containers.
+In a separate post, I've shown [how to use `step-ca`'s ACME functionality to integrate with Traefik](/posts/integrating-traefik-with-step-ca/) and automatically manage certificates for your Docker containers.
