@@ -55,5 +55,5 @@ Back to QNAP to upload them. No error this time!
 
 Problem solved.
 
-[^1]: It's technically just the web interface which doesn't support this. It appears you can bypass the web interface and use an ECDSA key and certificate by following the procedure outlined in this forum post: [[https://forum.qnap.com/viewtopic.php?t=110557]]
+[^1]: It's technically just the web interface which doesn't support this. It appears you can bypass the web interface and use an ECDSA key and certificate by following the procedure outlined in this forum post: [https://forum.qnap.com/viewtopic.php?t=110557]
 
