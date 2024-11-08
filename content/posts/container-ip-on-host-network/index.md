@@ -60,6 +60,7 @@ You're looking for the name of the network interface which is bound to the subne
 I use Portainer to manage my Docker environment (yes, it's a crutch that I should get rid of, but that's for another day). To create a new MACVLAN interface with Portainer is, in a word, goofy.
 
 The recipe is this:
+
 1. Define a MACVLAN network in the Portainer interface. This is your "configuration". This is NOT the network you'll actually use.
 2. Create _a second MACVLAN network_ in the Portainer interface that uses the first one as its configuration. THIS is the network you'll attach to containers!
 
