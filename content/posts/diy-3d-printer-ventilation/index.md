@@ -148,7 +148,7 @@ _The finished ventilation system within my workshop_
 * Gasket. I created the design by modifying my flange STL in Tinkercad to simply remove the flange part and keep the lip. Then I printed in TPU. This way the screw holes were already there and perfectly positioned.
 * 4" flex duct. I bought 20' of it from my local home improvement store.
 * Hose clamps for 4" duct. I used 6 of them. Local home improvement store.
-* [AC Infinity CLOUDLINE PRO S4 fan](amazon.com/dp/B07JB292JC?ref=**ppx_yo2ov_dt_b_fed_asin_title**).
+* [AC Infinity CLOUDLINE PRO S4 fan](https://amazon.com/dp/B07JB292JC?ref=**ppx_yo2ov_dt_b_fed_asin_title**).
 * [AC Infinity 4" backdraft damper](https://www.amazon.com/dp/B0842XSTV9?ref=ppx_yo2ov_dt_b_fed_asin_title&th=1).
 
 ### System Testing and Operation
