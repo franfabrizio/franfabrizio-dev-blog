@@ -23,13 +23,45 @@ hugo                    # production build -> ./public
 - `themes/hugo-theme-m10c/` - git submodule (franfabrizio/hugo-theme-m10c)
 - `layouts/shortcodes/` - custom shortcodes (e.g., `{{</* toc */>}}`)
 
-## Key Files
+## Post Creation
 
-- `config.toml` - Hugo config, theme, menu, analytics
-- `wrangler.toml` - Cloudflare Pages build config
+```bash
+hugo new -k post-bundle posts/<slug>
+```
+
+Frontmatter:
+```yaml
+---
+title: "Your Title Here"
+date: 2026-04-14T00:00:00-07:00  # Use local timezone
+draft: true                       # Set false when ready
+toc: true
+tags: ["tag1", "tag2"]
+---
+```
 
 ## Common Tasks
 
-- Add new post: `hugo new posts/<slug>/index.md`
 - Preview: `hugo server`
-- CI is Cloudflare Pages - no local test step needed
+- List posts: `find content/posts -name "index.md" -o -name "*.md" | grep -v test | sort`
+- Post count: `find content/posts -name "*.md" | wc -l`
+
+## Style
+
+- Practical, no-fluff tutorials with actual commands and errors
+- Link related posts and external docs
+- Use code blocks with language identifiers
+- No emojis in content
+
+## Commit Style
+
+- Imperative present tense: "Add post" not "Added post"
+- AI-initiated commits: include "[via Claude]"
+- Branch naming: `feat/<description>`, `fix/<description>`
+
+## Tech Stack
+
+- Hugo extended (required for SCSS)
+- Theme: hugo-theme-m10c
+- Analytics: Google Analytics (G-8LBKY582ZV)
+- Comments: Disqus
