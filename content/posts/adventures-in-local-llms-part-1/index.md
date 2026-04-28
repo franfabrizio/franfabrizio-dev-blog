@@ -1,7 +1,7 @@
 ---
 title: "Adventures in Local LLMs, Part 1: I Really Didn't Want to Do This"
 date: 2026-04-27T21:40:15-05:00
-draft: true
+draft: false
 toc: true
 ---
 
