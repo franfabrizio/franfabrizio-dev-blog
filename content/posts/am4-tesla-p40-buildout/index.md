@@ -92,7 +92,10 @@ Changing the platform did not change the basic cooling problem. The Tesla P40 is
 
 Fortunately, I have a 3D printer, so I printed shrouds designed to attach two high-speed 40mm fans to the rear of a P40.
 
-![The 3D-printed cooling shroud attaches two 40mm fans to the rear of a Tesla P40](./cooling-shroud.jpg)
+<figure style="margin: 2em 0; text-align: center;">
+  <img src="./cooling-shroud.jpg" alt="3D-printed cooling shroud on a Tesla P40" style="max-width: 100%; height: auto; width: 640px; display: inline-block;">
+  <figcaption style="margin-top: 8px; font-size: 0.9em; color: #666;">The 3D-printed shroud attaches two 40mm fans to the rear of a Tesla P40</figcaption>
+</figure>
 
 The fan setup was not elegant, but it did the job:
 
@@ -100,9 +103,15 @@ The fan setup was not elegant, but it did the job:
 * Two high-speed 40mm fans per card
 * PWM fan hub to run the 4 GPU fans
 
-![Both Tesla P40s with cooling shrouds installed](./shrouds-installed.jpg)
+<figure style="margin: 2em 0; text-align: center;">
+  <img src="./shrouds-installed.jpg" alt="Both Tesla P40s with cooling shrouds installed" style="max-width: 100%; height: auto; width: 640px; display: inline-block;">
+  <figcaption style="margin-top: 8px; font-size: 0.9em; color: #666;">Both Tesla P40s with cooling shrouds mounted</figcaption>
+</figure>
 
-![PWM fan hub running all four GPU fans](./pwm-hub.jpg)
+<figure style="margin: 2em 0; text-align: center;">
+  <img src="./pwm-hub.jpg" alt="PWM fan hub running all four GPU fans" style="max-width: 100%; height: auto; width: 640px; display: inline-block;">
+  <figcaption style="margin-top: 8px; font-size: 0.9em; color: #666;">PWM fan hub running all four GPU fans</figcaption>
+</figure>
 
 The early temperature results were encouraging. At full blast, the fans are fairly loud but effective. At idle, the P40 sat around 18-20°C. Under load, I saw temperatures in the mid-20s to low-30s°C range during initial testing, with the card pulling up to around 191W. I then dialed back the fans to see how low I could go and keep the cards decently cool. I'm now running the fans at about 40% which keeps temps in the 40s when under inference load while being far quieter. I do have a monitoring script that will ramp the fans up if necessary.
 
@@ -310,7 +319,10 @@ With the second P40 in place, everything pretty much just worked. `nvidia-smi` p
 
 And with that, I have a working local dual-P40 AI inference server at my disposal!
 
-![The completed AM4 build with both Tesla P40s installed](./finished-build.jpg)
+<figure style="margin: 2em 0; text-align: center;">
+  <img src="./finished-build.jpg" alt="Completed AM4 build with both Tesla P40s installed" style="max-width: 100%; height: auto; width: 640px; display: inline-block;">
+  <figcaption style="margin-top: 8px; font-size: 0.9em; color: #666;">The completed build with both Tesla P40s installed</figcaption>
+</figure>
 
 ## Early Performance Check
 
