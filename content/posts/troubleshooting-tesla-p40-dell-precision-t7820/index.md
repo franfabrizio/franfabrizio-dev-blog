@@ -5,7 +5,7 @@ draft: true
 toc: true
 ---
 
-This is the optional troubleshooting appendix to my first Tesla P40 post.
+This is the optional troubleshooting appendix to my [first Tesla P40 post](/tesla-p40-ai-server-project/).
 
 If you only care about the build that eventually worked, you can skip this one. The short version is: I could not get my Dell Precision T7820 to reliably initialize a Tesla P40 as a usable CUDA device, so I eventually stopped fighting it and moved to an AM4 consumer platform instead.
 
@@ -452,5 +452,5 @@ Other lessons:
 
 The Dell Precision T7820 was not a crazy idea. It looked good on paper. It had the right kind of chassis, the right PSU class, and the right workstation pedigree. But for my P40 build, it was a dead end.
 
-In the next main post, I’ll cover the build that finally worked: moving to an ASUS B550-E motherboard, Ryzen 5600X, normal ATX power, custom P40 cooling, Ubuntu, NVIDIA driver 580, and the deeply satisfying moment when `nvidia-smi` finally showed a healthy Tesla P40.
+In the next main postYYY, I’ll cover the build that finally worked: moving to an ASUS B550-E motherboard, Ryzen 5600X, normal ATX power, custom P40 cooling, Ubuntu, NVIDIA driver 580, and the deeply satisfying moment when `nvidia-smi` finally showed a healthy Tesla P40.
 
