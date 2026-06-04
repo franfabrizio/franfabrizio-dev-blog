@@ -1,7 +1,7 @@
 ---
 title: "When Cheap VRAM Gets Complicated: My Tesla P40 AI Server Project Part 1"
 date: 2026-06-02T15:48:41-05:00
-draft: true
+draft: false
 toc: true
 ---
 

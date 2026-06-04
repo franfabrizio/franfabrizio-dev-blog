@@ -1,7 +1,7 @@
 ---
 title: "Troubleshooting the Tesla P40 on the Dell Precision T7820 Workstation"
 date: 2026-06-03T08:48:10-05:00
-draft: true
+draft: false
 toc: true
 ---
 
