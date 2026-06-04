@@ -5,7 +5,7 @@ draft: true
 toc: true
 ---
 
-This is the optional troubleshooting appendix to my [first Tesla P40 post](/tesla-p40-ai-server-project/).
+This is the optional troubleshooting appendix to my [first Tesla P40 post](/posts/tesla-p40-ai-server-project/).
 
 If you only care about the build that eventually worked, you can skip this one. The short version is: I could not get my Dell Precision T7820 to reliably initialize a Tesla P40 as a usable CUDA device, so I eventually stopped fighting it and moved to an AM4 consumer platform instead.
 
