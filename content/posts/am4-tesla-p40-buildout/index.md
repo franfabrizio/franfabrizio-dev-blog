@@ -1,7 +1,7 @@
 ---
 title: "The AM4 Dual Tesla P40 Buildout"
 date: 2026-06-03T22:00:13-05:00
-draft: true
+draft: false
 toc: true
 tags: ["tesla-p40", "am4", "hwi"]
 ---
