@@ -452,5 +452,5 @@ Other lessons:
 
 The Dell Precision T7820 was not a crazy idea. It looked good on paper. It had the right kind of chassis, the right PSU class, and the right workstation pedigree. But for my P40 build, it was a dead end.
 
-In the next main postYYY, I’ll cover the build that finally worked: moving to an ASUS B550-E motherboard, Ryzen 5600X, normal ATX power, custom P40 cooling, Ubuntu, NVIDIA driver 580, and the deeply satisfying moment when `nvidia-smi` finally showed a healthy Tesla P40.
+In the next main post, [The AM4 Tesla P40 Buildout](/posts/am4-tesla-p40-buildout/), I’ll cover the build that finally worked: moving to an ASUS B550-E motherboard, Ryzen 5600X, normal ATX power, custom P40 cooling, Ubuntu, NVIDIA driver 580, and the deeply satisfying moment when `nvidia-smi` finally showed a healthy Tesla P40.
 

@@ -94,5 +94,5 @@ In reality, the Dell walled garden was actively working against me. The propriet
 
 Because the cards worked ok in my AMD AM4-based gaming machine, I stopped trying to fight the Dell and hatched an alternative plan to build a commodity system around the AM4 platform. Running two datacenter-class GPUs on a consumer desktop platform seemed counterintuitive, but after my experience on the Dell workstation I felt I had nothing to lose. With AM4 being the last-gen AMD platform parts would come relatively cheaply, plus since I already had built around AM4 at home I likely had parts I could scavenge as well, which would also help keep costs down.
 
-In my next post, YYY, I'll walk through how I built out that platform and how it worked out.
+In my next post, [The AM4 Tesla P40 Buildout](/posts/am4-tesla-p40-buildout/), I'll walk through how I built out that platform and how it worked out.
 
