@@ -1,0 +1,49 @@
+{{- $src := .Destination -}}
+{{- $src = trim $src "./" -}}
+{{- $alt := .Text | plainify -}}
+{{- $caption := .Title | markdownify -}}
+
+{{- $image := .Page.Resources.GetMatch $src -}}
+
+{{- if not $image -}}
+  {{- $image = resources.GetMatch $src -}}
+{{- end -}}
+
+{{- if and $image (eq $image.MediaType.MainType "image") -}}
+
+  {{- $small := $image.Resize "480x webp q75" -}}
+  {{- $medium := $image.Resize "800x webp q80" -}}
+  {{- $large := $image.Resize "1200x webp q82" -}}
+
+  <figure class="post-image">
+    <a href="{{ $image.RelPermalink }}">
+      <img
+        src="{{ $medium.RelPermalink }}"
+        srcset="
+          {{ $small.RelPermalink }} 480w,
+          {{ $medium.RelPermalink }} 800w,
+          {{ $large.RelPermalink }} 1200w
+        "
+        sizes="(max-width: 700px) 100vw, 800px"
+        width="{{ $medium.Width }}"
+        height="{{ $medium.Height }}"
+        alt="{{ $alt }}"
+        loading="lazy"
+        decoding="async">
+    </a>
+
+    {{- with $caption }}
+      <figcaption>{{ . }}</figcaption>
+    {{- end }}
+  </figure>
+
+{{- else -}}
+
+  <figure class="post-image">
+    <img src="{{ $src | safeURL }}" alt="{{ $alt }}" loading="lazy" decoding="async">
+    {{- with $caption }}
+      <figcaption>{{ . }}</figcaption>
+    {{- end }}
+  </figure>
+
+{{- end -}}
