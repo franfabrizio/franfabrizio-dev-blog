@@ -8,7 +8,7 @@ capitalizeListTitles = false
   author = "fran"
   description = "Tech Notes from my Homelab"
   avatar = "/laptop-wave.png"
-  favicon = ""
+  favicon = "/favicon.png"
   # Minimum word count to display the Table of Contents
   tocMinWordCount = 500
 
