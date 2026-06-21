@@ -40,3 +40,12 @@ This series will be a running journal of my experiments with local LLMs. I'll sh
 I've got many potential use cases to explore, from chatbots to document processing, home automation to coding assistance. I hope to discover which are feasible and which will be difficult to satisfy locally. I may even get into building some of my own tools.
 
 Why? I'm well aware that this is not a high-traffic blog. :-) My writing here is first and foremost for me - it helps me solidify what I am learning, and I enjoy the process of writing. Of course I do hope that I can help others in the process - otherwise, why put this online at all? I suspect there are a lot of others like me, reluctantly beginning to engage more deeply with LLMs as they wrestle with the larger, more general concerns of modern AI and not wanting to feel like they're contributing to the problem. We can't ignore AI, it's going to be everywhere in our lives if it isn't already. We'll all have to come to terms with how we will choose to engage with it. Maybe what I'm doing will help others to keep going with their own process. I don't really know where this will take me, only that I finally have the curiosity and motivation to explore and I want to capitalize on that. I'm sure I'll learn something interesting, no matter the outcome!
+
+---
+
+*This post is part of a series on local LLMs:*
+
+- [Part 1: I Really Didn't Want to Do This](/posts/adventures-in-local-llms-part-1/) *(current)*
+- [Part 2: The Hard Truth about Hardware](/posts/adventures-in-local-llms-part-2/)
+- [Part 3: The Software Stack is a Science Experiment](/posts/adventures-in-local-llms-part-3/)
+- [Part 4: Choosing a Model for Your Setup](/posts/adventures-in-local-llms-part-4/)

@@ -167,3 +167,12 @@ The next question is:
 ## Next Up
 
 In Part 3, I’ll walk through the software stack I ended up with (so far) — what's worked, what didn’t, and where things currently stand.
+
+---
+
+*This post is part of a series on local LLMs:*
+
+- [Part 1: I Really Didn't Want to Do This](/posts/adventures-in-local-llms-part-1/)
+- [Part 2: The Hard Truth about Hardware](/posts/adventures-in-local-llms-part-2/) *(current)*
+- [Part 3: The Software Stack is a Science Experiment](/posts/adventures-in-local-llms-part-3/)
+- [Part 4: Choosing a Model for Your Setup](/posts/adventures-in-local-llms-part-4/)

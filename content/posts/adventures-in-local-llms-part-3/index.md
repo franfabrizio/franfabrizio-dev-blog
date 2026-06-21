@@ -223,3 +223,12 @@ I hope sharing my experience with the software side of local LLMs gives the read
 ## Up Next
 
 In Part 4, we'll get more detailed, exploring specific models and how well they're performing in my environment, including tweaks I've made to squeeze the most out of them that I can. I also need to fess up - I did buy some beefier hardware to try to expand the horizons of what is possible in my setup. All that and more, coming up!
+
+---
+
+*This post is part of a series on local LLMs:*
+
+- [Part 1: I Really Didn't Want to Do This](/posts/adventures-in-local-llms-part-1/)
+- [Part 2: The Hard Truth about Hardware](/posts/adventures-in-local-llms-part-2/)
+- [Part 3: The Software Stack is a Science Experiment](/posts/adventures-in-local-llms-part-3/) *(current)*
+- [Part 4: Choosing a Model for Your Setup](/posts/adventures-in-local-llms-part-4/)
