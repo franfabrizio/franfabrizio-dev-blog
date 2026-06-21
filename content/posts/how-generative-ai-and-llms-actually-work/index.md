@@ -1,6 +1,6 @@
 ---
 title: "How Generative AI and LLMs Actually Work: Everything I Wish I Knew When I Started"
-date: 2026-04-30
+date: 2026-05-02
 draft: false
 toc: true
 ---

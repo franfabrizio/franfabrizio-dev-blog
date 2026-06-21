@@ -1,7 +1,7 @@
 ---
 title: "Adventures in Local LLMs Part 4: Choosing a Model for Your Setup"
-date: 2026-06-20T00:00:00-05:00
-draft: true
+date: 2026-05-01T00:00:00-05:00
+draft: false
 toc: true
 tags: [
   "llms",
