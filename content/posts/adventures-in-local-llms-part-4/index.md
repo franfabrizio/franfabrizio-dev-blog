@@ -12,9 +12,9 @@ tags: [
 
 ## Introduction
 
-In Part 3, I walked through the software stack I ended up running — Ollama, Open WebUI, paperless-gpt, and a handful of other tools — and how much of it felt like a science experiment. The stack worked, mostly, but it was only half the equation. The other half is the model itself.
+In [Part 3](/posts/adventures-in-local-llms-part-3/), I walked through the software stack I ended up running — Ollama, Open WebUI, paperless-gpt, and a handful of other tools — and how much of it felt like a science experiment. The stack worked, mostly, but it was only half the equation. The other half is the model itself.
 
-Once you've got your hardware constraints figured out (we covered those exhaustively in Part 2) and your software stack in place, you're left with a deceptively simple question: *which model do you actually run?*
+Once you've got your hardware constraints figured out (we covered those exhaustively in [Part 2](/posts/adventures-in-local-llms-part-2/)) and your software stack in place, you're left with a deceptively simple question: *which model do you actually run?*
 
 The answer is not obvious. There are hundreds of models out now, dozens of quantization variants, and each one makes different trade-offs between quality, speed, context window, and tool use. Some models are great for conversation and terrible at coding. Others are built for structured outputs and terrible at open-ended chat. Some models look great on paper and fall apart once you actually try to use them with your hardware.
 
@@ -69,7 +69,7 @@ Those first two in particular are critically important, at least to me. If the m
 
 ## My Hardware Situation (Updated)
 
-In Part 2, I described my baseline setup: a Ryzen 5900X with 32GB RAM and an NVIDIA 3060 Ti with 8GB of VRAM. That card was the limiting factor for everything. Models that didn't fit in 8GB spilled into system RAM, and the performance penalty was brutal — TTFT jumping from 3 seconds to 30+ seconds, tokens/sec dropping to unusable levels.
+In [Part 2](/posts/adventures-in-local-llms-part-2/), I described my baseline setup: a Ryzen 5900X with 32GB RAM and an NVIDIA 3060 Ti with 8GB of VRAM. That card was the limiting factor for everything. Models that didn't fit in 8GB spilled into system RAM, and the performance penalty was brutal — TTFT jumping from 3 seconds to 30+ seconds, tokens/sec dropping to unusable levels.
 
 Long story short, after experimenting for a while, I decided to upgrade my GPU to an **RTX 5060 Ti with 16GB of VRAM**. This wasn't a random choice — at the current time, it's the cheapest consumer card that gave me modern CUDA architecture and 16GB of VRAM. The 3060 had 12GB but wasn't worth the upgrade cost. The 3090 has 24GB but costs a fortune, even used. The 5060 Ti hit the sweet spot for my budget. Now, I wasn't considering AMD cards but the software ecosystem around them is maturing to the point where I think I'd consider that now as well.
 
