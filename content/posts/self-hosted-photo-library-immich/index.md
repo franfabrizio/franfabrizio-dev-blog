@@ -7,13 +7,13 @@ toc: true
 
 _**"We inspect the back-end data and compare it against the time and file of the crash during various time frames. I completely understand your willingness to look into this further. However, the type of investigation you're referring to requires access to data that isn’t available on your end. This information is only accessible through our backend systems, which means it can only be reviewed internally by our team."** -Mylio Support_
 
-That was the reply I got when I reached out to support for help when the Mylio application on my PC began repeatedly crashing on startup. They helped me fix it quickly, but when I asked how I could do it myself if it happened again in the future, that was their answer.
+I recently reached out to Mylio support for help when the Mylio application on my PC began repeatedly crashing on startup. They helped me fix it quickly, but when I asked how I could do it myself if it happened again in the future, that was their reply.
 
-Those words hit me like poison. "isn't available on your end" and "can only be reviewed internally by our team" produced an instant loss of trust in the company and the product. I know not everyone feels as strongly as I do on this topic, but there's just no way I will ever feel ok about entrusting something as important as my family photos to a system that I don't have complete visibility into and requires the cooperation of a corporation.
+**Those words hit me like poison**. "isn't available on your end" and "can only be reviewed internally by our team" produced an instant loss of trust in the company and the product. There's just no way I will ever feel ok about entrusting something as important as my family photos to a system that I don't have complete visibility into and requires the cooperation of a corporation.
 
 Thus began my search for a Mylio alternative that gave me more control.
 
-## Mylio Isn't Bad
+## Look, Mylio Isn't Bad
 
 The key features that brought me to Mylio in the first place were:
 
@@ -25,11 +25,11 @@ Mylio is a decent product and may be the right solution for lots of folks. I thi
 Having said that, Mylio has never quite settled in as our permanent family solution for a number of reasons. The main Mylio challenges for me have been:
 
 1. **It's not open enough**. Although there is a command line console which does let you poke at some of the underpinnings and the backing database, there's no API which limits what I can do to programmatically manage my Mylio library.
-2. **Complex architecture**. I love the idea of decentralized vault syncing in theory. In practice, it's complex. It requires me keeping Mylio up to date and maintaining different configurations on a number of different devices. When syncing activity is occuring it's often unclear which systems are communicating and what they're trying to transfer and at what quality. And while I've never felt my photos were at risk in Mylio, there have been numerous issues where I've needed to work with their support to get something unstuck or cleaned up. I've seen the system getting stuck generating thumbnails, getting stuck syncing vaults, locking up whenever any of the devices runs out of space, and the desktop app repeatedly crashing on startup, among other issues.
+2. **Complex architecture**. I love the idea of decentralized vault syncing in theory. In practice, it's complex. It requires me keeping Mylio up to date and maintaining different configurations on a number of different devices. When syncing activity is occuring it's often unclear which systems are communicating and what they're trying to transfer and why. And while I've never felt my photos were at risk in Mylio, there have been numerous issues where I've needed to work with their support to get something unstuck or cleaned up. I've seen the system getting stuck generating thumbnails, getting stuck syncing vaults, locking up whenever any of the devices runs out of space, and the desktop app repeatedly crashing on startup, among other issues.
 3. **Mobile app reliability**. The mobile apps have a background sync feature which is intended to sync photos even when the Mylio app isn't open. Unfortunately, I've found background sync to be touch-and-go. Sometimes it works, sometimes not. I tried to train family members to open Mylio periodically and let it sync, but was not very successful. To be fair, background sync is a struggle for lots of apps because of phone battery management policies.
 4. **UX Issues**. I've learned my way around the app, but trying to show my family how to use it has illustrated that the UI is not always intuitive and the UX can be frustrating.
 
-And then I got "black boxed" by support when I tried to learn how to fix it myself, which was the last straw for me.
+And then I got "black boxed" by support when I tried to learn how to fix something myself, which was the last straw for me.
 
 ## Retaking Control of our Photos
 
